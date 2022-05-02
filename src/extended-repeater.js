@@ -22,19 +22,23 @@ function repeater(str, options) {
   options.additionSeparator === undefined
     ? options.additionSeparator = "|"
     : options.additionSeparator = String(options.additionSeparator);
+  
   //даём дефолтные значения, указанные в задаче и удостоверяемся, что пришедшее станет строкой
 
   function repeat(str, separator, repeatTimes) {
     if (str === undefined) str = "";
     if (repeatTimes === undefined) repeatTimes = 1; // опять задаём дефолт
     let arr = new Array;
+    typeof str === "string" ? str : str = String(str);
 
     for (let i = 0; i < repeatTimes; i++) {
-      arr.push(String(str));
+      arr.push(str);
     }
     let result = arr.join(separator);
 
     return result;
+    //задача казалась сложной, но всё свелось 
+    //к обычному набитию и последующему сшиванию массива в строку
   }
 
   let addition = repeat(
